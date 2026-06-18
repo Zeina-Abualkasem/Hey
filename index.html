@@ -24,7 +24,7 @@
             overflow-x: hidden;
         }
 
-        /* Abstract pink atmosphere — painterly, soft */
+        /* Abstract pink atmosphere */
         .atmosphere {
             position: fixed;
             border-radius: 50%;
@@ -70,7 +70,6 @@
             box-shadow: 0 40px 100px rgba(160, 120, 120, 0.05);
         }
 
-        /* Minimalist geometry */
         .line {
             width: 32px;
             height: 1px;
@@ -85,7 +84,6 @@
             margin: 1.5rem auto;
         }
 
-        /* Typography — quiet, deliberate */
         .inscription {
             font-size: 0.6rem;
             font-weight: 300;
@@ -121,7 +119,6 @@
             letter-spacing: 0.3px;
         }
 
-        /* The apology — restrained, honest */
         .apology {
             font-size: 0.95rem;
             line-height: 2;
@@ -141,7 +138,6 @@
             font-weight: 500;
         }
 
-        /* Poetry fragment — original, not cliché */
         .poetry {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
@@ -161,39 +157,7 @@
             font-style: normal;
         }
 
-        /* Her loves — abstracted, no emojis */
-        .loves {
-            display: flex;
-            justify-content: center;
-            gap: 2.8rem;
-            margin: 1.8rem 0 0.5rem;
-            flex-wrap: wrap;
-        }
-        .love-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.3rem;
-        }
-        .love-symbol {
-            font-size: 1.3rem;
-            color: #D4BFBF;
-            font-weight: 200;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-        }
-        .love-symbol:hover {
-            color: #B59090;
-        }
-        .love-label {
-            font-size: 0.55rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #D4C0C0;
-            font-weight: 300;
-        }
-
-        /* Actions — three refined lines */
+        /* Three refined actions */
         .actions {
             display: flex;
             justify-content: center;
@@ -228,7 +192,7 @@
             border-bottom-color: #C08282;
         }
 
-        /* Response container */
+        /* Response container — stays subtle */
         .response {
             text-align: center;
             margin-top: 1.8rem;
@@ -248,7 +212,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Tiny details */
         .detail {
             position: absolute;
             font-size: 0.6rem;
@@ -266,15 +229,15 @@
             right: 2.5rem;
         }
 
-        /* ===== FLOWER POPUP ===== */
+        /* ===== FLOWER POPUP — IN-PAGE, NOT A NEW WINDOW ===== */
         .flower-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(252, 248, 247, 0.6);
-            backdrop-filter: blur(8px);
+            background: rgba(252, 248, 247, 0.7);
+            backdrop-filter: blur(10px);
             z-index: 1000;
             display: none;
             align-items: center;
@@ -305,7 +268,7 @@
             100% { transform: scale(1) translateY(0); opacity: 1; }
         }
 
-        /* Flower illustration — purely CSS, no emoji */
+        /* CSS Flower */
         .flower-illustration {
             position: relative;
             width: 80px;
@@ -392,7 +355,6 @@
             .name { font-size: 3rem; }
             .apology { font-size: 0.9rem; }
             .poetry { font-size: 1rem; padding: 1.2rem 0; }
-            .loves { gap: 1.8rem; }
             .actions { gap: 1.2rem; }
             .detail-tl, .detail-br { display: none; }
             .flower-popup { padding: 2.5rem 1.5rem 2rem; border-radius: 40px; }
@@ -408,8 +370,6 @@
         @media (max-width: 400px) {
             .container { padding: 2rem 1.2rem; }
             .name { font-size: 2.4rem; }
-            .loves { gap: 1.2rem; }
-            .love-symbol { font-size: 1rem; }
             .actions { flex-direction: column; align-items: center; gap: 0.8rem; }
         }
 
@@ -421,87 +381,57 @@
 </head>
 <body>
 
-    <!-- Atmosphere -->
     <div class="atmosphere"></div>
     <div class="atmosphere"></div>
     <div class="atmosphere"></div>
 
     <div class="container">
 
-        <!-- Details -->
         <div class="detail detail-tl">✦</div>
         <div class="detail detail-br">✦</div>
 
-        <!-- Header -->
         <div class="inscription">a letter</div>
         <h1 class="name">for <span class="weight">Zeina</span></h1>
         <div class="dedication">— in the quiet light of apology —</div>
 
         <div class="line"></div>
 
-        <!-- Apology -->
         <p class="apology">
             I made you feel <span class="em">less</span> than you are,<br>
             and that is not something I can undo with words alone.<br><br>
             But I want you to know: <span class="strong">I see you</span>.<br>
             Not as an idea, not as a reflection of me —<br>
             but as the person who makes <span class="em">pink</span> feel like a serious color.<br><br>
-            I am sorry for the distance I created.<br>
-            I am sorry for not being <span class="strong">present</span>.
+            I am sorry for the things I said.<br>
+            I am sorry for making you <span class="strong">angry</span>.<br>
+            I should have been <span class="em">better</span>.
         </p>
 
-        <!-- Poetry — original, not cliché -->
         <div class="poetry">
             “Poetry was invented to describe you —<br>
             but even the best verses <span class="accent-word">stumble</span><br>
             at the weight of your <span class="accent-word">stillness</span>.”
         </div>
 
-        <!-- Her loves — abstracted, no emojis -->
-        <div class="loves">
-            <div class="love-item">
-                <span class="love-symbol">◈</span>
-                <span class="love-label">pink</span>
-            </div>
-            <div class="love-item">
-                <span class="love-symbol">◈</span>
-                <span class="love-label">lilies</span>
-            </div>
-            <div class="love-item">
-                <span class="love-symbol">◈</span>
-                <span class="love-label">ponies</span>
-            </div>
-            <div class="love-item">
-                <span class="love-symbol">◈</span>
-                <span class="love-label">horses</span>
-            </div>
-            <div class="love-item">
-                <span class="love-symbol">◈</span>
-                <span class="love-label">reading</span>
-            </div>
-        </div>
-
         <div class="line-thin"></div>
 
-        <!-- Actions — three refined lines -->
+        <!-- Three actions — open popups in-page -->
         <div class="actions">
             <button class="action primary" onclick="openFlower('let me show you')">let me show you</button>
             <button class="action" onclick="openFlower('i will be gentler')">i will be gentler</button>
             <button class="action" onclick="openFlower('another verse')">another verse</button>
         </div>
 
-        <!-- Response container -->
         <div class="response" id="response">
             “I am learning to be better. For you.”
         </div>
 
     </div>
 
-    <!-- ===== FLOWER POPUP OVERLAY ===== -->
+    <!-- ===== FLOWER POPUP (in-page, not a new window) ===== -->
     <div class="flower-overlay" id="flowerOverlay">
         <div class="flower-popup">
 
-            <!-- CSS Flower Illustration -->
             <div class="flower-illustration">
                 <div class="petal"></div>
                 <div class="petal"></div>
@@ -513,9 +443,7 @@
             </div>
 
             <div class="popup-title" id="popupTitle">for you</div>
-            <div class="popup-message" id="popupMessage">
-                <!-- dynamic content -->
-            </div>
+            <div class="popup-message" id="popupMessage"></div>
             <button class="close-btn" onclick="closeFlower()">close</button>
 
         </div>
@@ -527,11 +455,11 @@
         const popupTitle = document.getElementById('popupTitle');
         const popupMessage = document.getElementById('popupMessage');
 
-        // Poetic responses
+        // Poetic responses — focused on the apology, not absence
         const verses = [
             "She moved like a line of poetry — unexpected, essential, impossible to forget.",
             "I would learn every language just to apologize to her properly.",
-            "She read books the way I should have read her — carefully, without assumptions.",
+            "She read people the way I should have read her — carefully, without assumptions.",
             "Pink is not soft. It is the color of insistence. She taught me that.",
             "I will not make the same mistake twice. She is worth every version of better."
         ];
@@ -552,7 +480,6 @@
             "I will remember: you are not a chapter — you are the whole book."
         ];
 
-        // Titles for the popup
         const titles = {
             'let me show you': 'a promise',
             'i will be gentler': 'a vow',
@@ -581,6 +508,13 @@
                     title = 'for you';
             }
 
+            // Update the inline response
+            responseEl.textContent = message;
+            responseEl.style.animation = 'none';
+            void responseEl.offsetWidth;
+            responseEl.style.animation = 'fadeIn 0.6s ease';
+
+            // Open the flower popup with the message
             popupTitle.textContent = title;
             popupMessage.innerHTML = `“${message}”`;
             overlay.classList.add('open');
@@ -605,36 +539,6 @@
                 closeFlower();
             }
         });
-
-        // Also update the inline response when popup opens
-        // (keeps the page response in sync)
-        const originalOpen = openFlower;
-        openFlower = function(type) {
-            let message = '';
-            switch(type) {
-                case 'let me show you':
-                    message = offers[Math.floor(Math.random() * offers.length)];
-                    break;
-                case 'i will be gentler':
-                    message = promises[Math.floor(Math.random() * promises.length)];
-                    break;
-                case 'another verse':
-                    message = verses[Math.floor(Math.random() * verses.length)];
-                    break;
-                default:
-                    message = 'I am here. And I am sorry.';
-            }
-            responseEl.textContent = message;
-            responseEl.style.animation = 'none';
-            void responseEl.offsetWidth;
-            responseEl.style.animation = 'fadeIn 0.6s ease';
-
-            // Now open the flower popup with the same message
-            popupTitle.textContent = titles[type] || 'for you';
-            popupMessage.innerHTML = `“${message}”`;
-            overlay.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        };
     </script>
 
 </body>
