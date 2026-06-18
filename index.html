@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Zeina ♡ A Little Apology</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <title>for zeina — a small universe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,453 +13,428 @@
         }
 
         body {
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             min-height: 100vh;
+            background: #FDF8F7;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #FFF8F7;
-            padding: 2rem;
+            padding: 1.5rem;
             position: relative;
-            overflow-x: hidden;
         }
 
-        /* Soft pink & pearl background elements */
-        .bg-blush {
+        /* Abstract pink gradients — subtle, not cliché */
+        .gradient-orb {
             position: fixed;
             border-radius: 50%;
+            filter: blur(80px);
             pointer-events: none;
             z-index: 0;
-            opacity: 0.3;
         }
-        .bg-blush:nth-child(1) {
+        .gradient-orb:nth-child(1) {
+            width: 500px;
+            height: 500px;
+            background: #F5D9D9;
+            top: -200px;
+            right: -100px;
+            opacity: 0.4;
+        }
+        .gradient-orb:nth-child(2) {
             width: 400px;
             height: 400px;
-            background: #FADADD;
-            top: -100px;
-            right: -100px;
+            background: #EED5D5;
+            bottom: -150px;
+            left: -100px;
+            opacity: 0.3;
         }
-        .bg-blush:nth-child(2) {
+        .gradient-orb:nth-child(3) {
             width: 300px;
             height: 300px;
-            background: #F8E8E8;
-            bottom: -80px;
-            left: -80px;
-        }
-        .bg-blush:nth-child(3) {
-            width: 200px;
-            height: 200px;
-            background: #F5E0E6;
+            background: #F0DCDC;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             opacity: 0.15;
         }
 
-        /* Main card — pearl white with pink accents */
-        .card {
-            max-width: 680px;
+        .container {
+            max-width: 720px;
             width: 100%;
-            background: #FFFFFF;
-            border-radius: 40px;
+            background: rgba(255, 252, 251, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 48px;
             padding: 3.5rem 3rem;
-            box-shadow: 0 20px 60px rgba(200, 160, 160, 0.12);
-            border: 1px solid #F5ECEC;
+            border: 1px solid rgba(235, 215, 215, 0.3);
             position: relative;
             z-index: 1;
-            transition: all 0.3s ease;
+            box-shadow: 0 30px 80px rgba(160, 120, 120, 0.06);
         }
 
-        /* Pink pearl accent line */
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, #F5D6D6, #E8B4B8, #F5D6D6);
-            border-radius: 0 0 4px 4px;
+        /* Minimalist divider — not a heart, not a flower */
+        .line {
+            width: 40px;
+            height: 1px;
+            background: #DCC5C5;
+            margin: 1.8rem auto;
         }
 
-        /* Decorative lilies & pearls */
-        .decoration {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 1.5rem;
-        }
-        .lily-icon {
-            font-size: 1.6rem;
-            color: #E8B4B8;
-        }
-        .pearl-divider {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #F5D6D6;
-        }
-        .pearl-divider:nth-child(2) {
-            background: #E8B4B8;
-            width: 8px;
-            height: 8px;
-        }
-        .pearl-divider:nth-child(4) {
-            background: #E8B4B8;
-            width: 8px;
-            height: 8px;
-        }
-
-        /* Greeting */
-        .greeting {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.2rem;
+        /* Typography — quiet, restrained */
+        .small-label {
+            font-size: 0.65rem;
             font-weight: 400;
-            color: #C9A0A0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #C9AFAF;
             text-align: center;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.2rem;
+            margin-bottom: 1.2rem;
         }
 
-        .name {
+        .name-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3.6rem;
-            font-weight: 700;
+            font-weight: 300;
+            font-size: 3.8rem;
+            color: #B59090;
+            text-align: center;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .name-title .accent {
+            font-weight: 600;
             color: #C08282;
-            text-align: center;
-            line-height: 1.15;
-            margin-bottom: 0.3rem;
         }
 
-        .sub-name {
-            font-family: 'Playfair Display', serif;
+        .sub-text {
+            font-family: 'Cormorant Garamond', serif;
             font-style: italic;
+            font-weight: 300;
             font-size: 1.1rem;
-            font-weight: 400;
-            color: #D4A8A8;
+            color: #C9AFAF;
             text-align: center;
-            margin-bottom: 2rem;
+            margin-top: 0.2rem;
         }
 
-        .divider {
-            width: 70px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #F0D6D6, transparent);
-            margin: 0 auto 2rem auto;
-        }
-
-        /* Message */
-        .message {
-            font-size: 1rem;
+        /* The apology — honest, not cheesy */
+        .apology-text {
+            font-size: 0.95rem;
             line-height: 1.9;
             color: #5A4A4A;
             text-align: center;
-            margin-bottom: 0.8rem;
+            max-width: 480px;
+            margin: 0 auto;
+            font-weight: 300;
         }
-        .message strong {
-            color: #C08282;
-            font-weight: 600;
+        .apology-text strong {
+            color: #B59090;
+            font-weight: 500;
         }
 
-        /* Things she loves — pink, lilies, ponies, horses, reading */
-        .love-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 0.6rem;
-            margin: 1.8rem 0;
+        /* Her loves — presented as abstract icons, not a grid of emojis */
+        .loves-scene {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            position: relative;
         }
-        .love-item {
-            background: #FFF8F7;
-            border-radius: 16px;
-            padding: 0.8rem 0.4rem;
-            text-align: center;
-            border: 1px solid #F5ECEC;
-            transition: all 0.2s;
+        .love-element {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
         }
-        .love-item:hover {
-            background: #FFF5F5;
-            border-color: #E8C8C8;
+        .love-symbol {
+            font-size: 1.6rem;
+            opacity: 0.6;
+            transition: all 0.3s;
+            filter: grayscale(0.3);
+        }
+        .love-symbol:hover {
+            opacity: 1;
+            filter: grayscale(0);
             transform: translateY(-2px);
         }
-        .love-item .emoji {
-            display: block;
-            font-size: 1.6rem;
-            margin-bottom: 0.2rem;
-        }
-        .love-item .label {
+        .love-name {
             font-size: 0.6rem;
-            color: #B08888;
-            letter-spacing: 0.3px;
-            font-weight: 500;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
+            color: #D4BFBF;
+            font-weight: 300;
         }
 
-        /* Promise / apology note */
-        .promise {
-            background: #FFF8F7;
-            border-radius: 20px;
-            padding: 1.4rem 1.8rem;
-            margin: 1.5rem 0;
-            border-left: 4px solid #E8B4B8;
-            font-size: 0.95rem;
-            color: #5A4A4A;
-            line-height: 1.7;
-            text-align: center;
-        }
-        .promise strong {
-            color: #C08282;
-        }
-        .promise .heart {
-            color: #E8B4B8;
-        }
-
-        /* Book / reading reference */
-        .book-quote {
-            font-family: 'Playfair Display', serif;
+        /* The promise — written like a fragment, not a cliché */
+        .promise-fragment {
+            font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            font-size: 0.95rem;
-            color: #C9A0A0;
+            font-weight: 300;
+            font-size: 1.15rem;
+            color: #B59090;
             text-align: center;
-            margin: 1.2rem 0 0.8rem;
-            padding: 0 1rem;
-            border-top: 1px solid #F5ECEC;
-            padding-top: 1.2rem;
+            line-height: 1.7;
+            padding: 1.2rem 0;
+            border-top: 1px solid #F0E5E5;
+            border-bottom: 1px solid #F0E5E5;
+            margin: 1.5rem 0;
+        }
+        .promise-fragment .highlight {
+            font-weight: 600;
+            color: #C08282;
+            font-style: normal;
         }
 
-        /* Buttons */
-        .button-group {
+        /* Buttons — minimal, text-based */
+        .actions {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
-            margin-top: 1.8rem;
+            margin-top: 2rem;
             flex-wrap: wrap;
         }
-
-        .btn {
-            padding: 0.7rem 2rem;
-            border-radius: 40px;
-            border: none;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .action-link {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #C9AFAF;
             text-decoration: none;
-            display: inline-block;
+            border-bottom: 1px solid transparent;
+            transition: all 0.25s;
+            padding: 0.2rem 0;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+        .action-link:hover {
+            color: #B59090;
+            border-bottom-color: #DCC5C5;
+        }
+        .action-link.primary {
+            color: #B59090;
+            font-weight: 500;
+        }
+        .action-link.primary:hover {
+            color: #C08282;
+            border-bottom-color: #C08282;
         }
 
-        .btn-primary {
-            background: #E8B4B8;
-            color: white;
-            box-shadow: 0 4px 14px rgba(200, 140, 140, 0.25);
-        }
-        .btn-primary:hover {
-            background: #DBA0A5;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(200, 140, 140, 0.35);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #C9A0A0;
-            border: 1px solid #E8D6D6;
-        }
-        .btn-secondary:hover {
-            background: #FFF5F5;
-            border-color: #E8B4B8;
-        }
-
-        /* Footer */
-        .footer-note {
-            text-align: center;
-            margin-top: 2rem;
+        /* Tiny details — like a found object */
+        .detail-corner {
+            position: absolute;
+            bottom: 1.8rem;
+            right: 2rem;
             font-size: 0.7rem;
-            color: #D4B8B8;
+            color: #E0CFCF;
             letter-spacing: 0.5px;
+            font-weight: 300;
+            opacity: 0.6;
         }
-
-        /* Floating hearts & lilies */
-        .floating {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-        .float-item {
+        .detail-corner-left {
             position: absolute;
-            opacity: 0.12;
-            animation: floatUp 25s infinite linear;
-        }
-        .float-item:nth-child(1) { left: 3%; animation-duration: 22s; font-size: 2rem; }
-        .float-item:nth-child(2) { left: 12%; animation-duration: 18s; animation-delay: 3s; font-size: 1.6rem; }
-        .float-item:nth-child(3) { left: 25%; animation-duration: 26s; animation-delay: 5s; font-size: 2.2rem; }
-        .float-item:nth-child(4) { left: 40%; animation-duration: 20s; animation-delay: 1s; font-size: 1.8rem; }
-        .float-item:nth-child(5) { left: 55%; animation-duration: 24s; animation-delay: 7s; font-size: 2rem; }
-        .float-item:nth-child(6) { left: 70%; animation-duration: 19s; animation-delay: 4s; font-size: 1.6rem; }
-        .float-item:nth-child(7) { left: 82%; animation-duration: 23s; animation-delay: 2s; font-size: 2.4rem; }
-        .float-item:nth-child(8) { left: 93%; animation-duration: 21s; animation-delay: 6s; font-size: 1.8rem; }
-
-        @keyframes floatUp {
-            0% { bottom: -10%; transform: rotate(0deg) scale(0.8); opacity: 0.05; }
-            10% { opacity: 0.15; }
-            90% { opacity: 0.15; }
-            100% { bottom: 110%; transform: rotate(720deg) scale(1.2); opacity: 0; }
+            top: 1.8rem;
+            left: 2rem;
+            font-size: 0.7rem;
+            color: #E0CFCF;
+            letter-spacing: 0.5px;
+            font-weight: 300;
+            opacity: 0.4;
         }
 
-        /* Pony / horse decorative element */
-        .pony-corner {
-            position: absolute;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            font-size: 1.8rem;
-            opacity: 0.15;
-            transform: rotate(-8deg);
-        }
-
-        @media (max-width: 520px) {
-            .card { padding: 2rem 1.5rem; }
-            .name { font-size: 2.6rem; }
-            .love-grid { grid-template-columns: repeat(3, 1fr); }
-            .greeting { font-size: 1rem; }
-            .btn { padding: 0.6rem 1.2rem; font-size: 0.8rem; }
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container { padding: 2rem 1.5rem; border-radius: 32px; }
+            .name-title { font-size: 2.8rem; }
+            .loves-scene { gap: 1.5rem; }
+            .apology-text { font-size: 0.9rem; }
+            .detail-corner, .detail-corner-left { display: none; }
         }
 
         @media (max-width: 400px) {
-            .love-grid { grid-template-columns: repeat(2, 1fr); }
-            .button-group { flex-direction: column; align-items: center; }
+            .loves-scene { gap: 1rem; }
+            .love-symbol { font-size: 1.3rem; }
+            .actions { flex-direction: column; align-items: center; gap: 0.8rem; }
         }
+
+        /* A quiet animation */
+        @keyframes subtleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+        .float-soft {
+            animation: subtleFloat 4s ease-in-out infinite;
+        }
+        .float-soft:nth-child(2) { animation-delay: 0.5s; }
+        .float-soft:nth-child(3) { animation-delay: 1s; }
+        .float-soft:nth-child(4) { animation-delay: 1.5s; }
+        .float-soft:nth-child(5) { animation-delay: 2s; }
     </style>
 </head>
 <body>
 
-    <!-- Background blushes -->
-    <div class="bg-blush"></div>
-    <div class="bg-blush"></div>
-    <div class="bg-blush"></div>
+    <!-- Abstract background -->
+    <div class="gradient-orb"></div>
+    <div class="gradient-orb"></div>
+    <div class="gradient-orb"></div>
 
-    <!-- Floating hearts and lilies -->
-    <div class="floating">
-        <span class="float-item">♡</span>
-        <span class="float-item">🌸</span>
-        <span class="float-item">♥</span>
-        <span class="float-item">🌷</span>
-        <span class="float-item">♡</span>
-        <span class="float-item">🌸</span>
-        <span class="float-item">♥</span>
-        <span class="float-item">🌷</span>
-    </div>
+    <div class="container">
 
-    <!-- Main card -->
-    <div class="card">
+        <!-- Minimal details -->
+        <div class="detail-corner-left">✦</div>
+        <div class="detail-corner">✦</div>
 
-        <!-- Decorative lilies + pearls -->
-        <div class="decoration">
-            <span class="lily-icon">🌷</span>
-            <span class="pearl-divider"></span>
-            <span class="lily-icon">🌸</span>
-            <span class="pearl-divider"></span>
-            <span class="lily-icon">🌷</span>
-        </div>
+        <!-- Header -->
+        <div class="small-label">a note for</div>
+        <h1 class="name-title">Zeina <span class="accent">·</span></h1>
+        <div class="sub-text">pink light, open pages, and the sound of hooves</div>
 
-        <!-- Greeting -->
-        <p class="greeting">For the one who loves</p>
-        <h1 class="name">Zeina</h1>
-        <p class="sub-name">pink skies, lilies, ponies, horses & books</p>
+        <div class="line"></div>
 
-        <div class="divider"></div>
-
-        <!-- Apology message -->
-        <p class="message">
-            I'm sorry, <strong>Zeina</strong>.<br>
-            I know I messed up, and I hate that I made you feel anything less than cherished.
+        <!-- Apology — honest, not cliché -->
+        <p class="apology-text">
+            I know I made you feel less than you are — <strong>and that's not okay</strong>.<br><br>
+            You deserve someone who sees you like a <strong>pink sunrise</strong> —<br>
+            rare, quiet, and worth waking up for.<br><br>
+            Someone who reads your <strong>silences</strong> the way you read books —<br>
+            carefully, with attention, without rushing to the last page.
         </p>
 
-        <p class="message">
-            You deserve <strong>pink sunsets</strong>, <strong>lilies in full bloom</strong>,<br>
-            <strong>ponies running free</strong>, and <strong>pages of poetry</strong> written just for you.
-        </p>
-
-        <!-- Things she loves -->
-        <div class="love-grid">
-            <div class="love-item">
-                <span class="emoji">🌸</span>
-                <span class="label">Pink</span>
+        <!-- Her loves — presented quietly, not as a loud grid -->
+        <div class="loves-scene">
+            <div class="love-element float-soft">
+                <span class="love-symbol">🌸</span>
+                <span class="love-name">pink</span>
             </div>
-            <div class="love-item">
-                <span class="emoji">🌷</span>
-                <span class="label">Lilies</span>
+            <div class="love-element float-soft">
+                <span class="love-symbol">🌷</span>
+                <span class="love-name">lilies</span>
             </div>
-            <div class="love-item">
-                <span class="emoji">🐴</span>
-                <span class="label">Ponies</span>
+            <div class="love-element float-soft">
+                <span class="love-symbol">🐴</span>
+                <span class="love-name">ponies</span>
             </div>
-            <div class="love-item">
-                <span class="emoji">🐎</span>
-                <span class="label">Horses</span>
+            <div class="love-element float-soft">
+                <span class="love-symbol">🐎</span>
+                <span class="love-name">horses</span>
             </div>
-            <div class="love-item">
-                <span class="emoji">📖</span>
-                <span class="label">Reading</span>
+            <div class="love-element float-soft">
+                <span class="love-symbol">📖</span>
+                <span class="love-name">reading</span>
             </div>
         </div>
 
-        <!-- Promise / apology -->
-        <div class="promise">
-            <span class="heart">♥</span> I promise to be more <strong>present</strong>, more <strong>patient</strong>, and more <strong>kind</strong>.<br>
-            Because you are not just someone I love — you are <strong>my favorite story</strong>.<br>
-            <span class="heart">♡</span> And every good story deserves a <strong>beautiful ending</strong>. <span class="heart">♡</span>
+        <!-- Promise — written like a fragment, not a cliché -->
+        <div class="promise-fragment">
+            “I’ll be <span class="highlight">gentler</span> with your heart<br>
+            than I was with my own words.”
         </div>
 
-        <!-- Book quote / reading reference -->
-        <div class="book-quote">
-            “She was a book of pink petals and wild horse dreams —<br>
-            and I forgot to turn the page gently.”
+        <!-- Actions — subtle, not demanding -->
+        <div class="actions">
+            <button class="action-link primary" onclick="respond()">i'd like to make it right</button>
+            <button class="action-link" onclick="lilies()">send you lilies</button>
+            <button class="action-link" onclick="quote()">a line from a book</button>
         </div>
 
-        <!-- Buttons -->
-        <div class="button-group">
-            <button class="btn btn-primary" onclick="showForgiveness()">🌸 Will you forgive me?</button>
-            <button class="btn btn-secondary" onclick="showLilies()">🌷 Send you lilies</button>
-        </div>
-
-        <!-- Pony corner -->
-        <div class="pony-corner">🐴</div>
-
-        <!-- Footer -->
-        <div class="footer-note">
-            ♡ made with pink, lilies & a hopeful heart ♡
-        </div>
     </div>
 
     <script>
-        function showForgiveness() {
+        // Quiet, thoughtful responses — not popups with emojis
+        function respond() {
             const messages = [
-                "You're the pink in my gray days. 🌸 I'm so sorry.",
-                "I'll bring you lilies every day if you let me. 🌷",
-                "You're my favorite person to read next to. 📖",
-                "I'd ride through any storm to see you smile. 🐴",
-                "Forgive me? I'll make it up to you — I promise. ♡"
+                "You don't have to say anything. Just let me show you.",
+                "I'll wait. However long it takes.",
+                "Your feelings matter more than my pride.",
+                "I'm here. Not to explain — just to listen.",
+                "I see you, Zeina. I'm sorry I forgot to say it."
             ];
-            const random = messages[Math.floor(Math.random() * messages.length)];
-            alert(random);
+            const msg = messages[Math.floor(Math.random() * messages.length)];
+            // Create a subtle inline response instead of alert
+            const existing = document.querySelector('.response-inline');
+            if (existing) existing.remove();
+
+            const div = document.createElement('div');
+            div.className = 'response-inline';
+            div.style.cssText = `
+                text-align: center;
+                margin-top: 1.5rem;
+                font-size: 0.9rem;
+                color: #B59090;
+                font-family: 'Cormorant Garamond', serif;
+                font-style: italic;
+                padding: 0.5rem 1rem;
+                border-top: 1px solid #F0E5E5;
+                animation: subtleFloat 3s ease-in-out infinite;
+            `;
+            div.textContent = '“' + msg + '”';
+            document.querySelector('.container').appendChild(div);
         }
 
-        function showLilies() {
-            const lilyEmojis = ['🌷', '🌸', '🌺', '🌷', '🌸', '🌺', '🌷'];
-            let lilies = '';
-            for (let i = 0; i < 12; i++) {
-                lilies += lilyEmojis[Math.floor(Math.random() * lilyEmojis.length)] + ' ';
-            }
-            alert('For you, Zeina — a garden of lilies:\n\n' + lilies + '\n\nI hope they make you smile. 🌷');
+        function lilies() {
+            const existing = document.querySelector('.response-inline');
+            if (existing) existing.remove();
+
+            const div = document.createElement('div');
+            div.className = 'response-inline';
+            div.style.cssText = `
+                text-align: center;
+                margin-top: 1.5rem;
+                font-size: 0.85rem;
+                color: #C9AFAF;
+                font-family: 'Inter', sans-serif;
+                font-weight: 300;
+                padding: 0.5rem 1rem;
+                border-top: 1px solid #F0E5E5;
+                letter-spacing: 0.3px;
+            `;
+            const lilyLines = [
+                "I'd leave a trail of lilies from your door to wherever you want to go.",
+                "Lilies don't ask for forgiveness. They just bloom. I'll try to be more like that.",
+                "A lily a day until you smile. I'm not kidding.",
+                "You're the only pink I need in my life."
+            ];
+            div.textContent = '✦ ' + lilyLines[Math.floor(Math.random() * lilyLines.length)] + ' ✦';
+            document.querySelector('.container').appendChild(div);
         }
+
+        function quote() {
+            const existing = document.querySelector('.response-inline');
+            if (existing) existing.remove();
+
+            const quotes = [
+                "“She was a wild horse in a world of fences.”",
+                "“She read books like other people breathe — instinctively, and with great care.”",
+                "“Pink is not a color. It's an attitude. And she wore it like armor.”",
+                "“Some people are lilies in a field of roses. She was one of them.”",
+                "“She loved horses because they never lied. She wished people were the same.”"
+            ];
+            const div = document.createElement('div');
+            div.className = 'response-inline';
+            div.style.cssText = `
+                text-align: center;
+                margin-top: 1.5rem;
+                font-size: 0.95rem;
+                color: #B59090;
+                font-family: 'Cormorant Garamond', serif;
+                font-style: italic;
+                padding: 0.5rem 1rem;
+                border-top: 1px solid #F0E5E5;
+                animation: subtleFloat 3s ease-in-out infinite;
+            `;
+            div.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+            document.querySelector('.container').appendChild(div);
+        }
+
+        // Add the subtle float animation if not already defined
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes subtleFloat {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-3px); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 
 </body>
-      </html>
+</html>
