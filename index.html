@@ -21,7 +21,6 @@
             justify-content: center;
             padding: 4rem 2rem;
             position: relative;
-            /* FIX: Enabled scrolling so she can read everything smoothly */
             overflow-y: auto;
             overflow-x: hidden;
         }
@@ -92,15 +91,13 @@
             transform: translateY(-2px);
         }
 
-        /* FIX: Tiny mini-player inside the card so YouTube doesn't block playback features */
-        .player-wrapper {
-            margin: 0 auto 1.5rem;
-            width: 200px;
-            height: 110px;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(215, 205, 200, 0.4);
-            box-shadow: 0 10px 30px rgba(140, 130, 125, 0.05);
+        /* Hidden system bridge container for background audio mechanics */
+        #yt-background-audio {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
         }
 
         /* Master Letter Sculpture */
@@ -110,7 +107,7 @@
             background: rgba(255, 254, 253, 0.94);
             backdrop-filter: blur(24px);
             border-radius: 32px;
-            padding: 5.5rem 3.5rem 6.5rem; /* Increased bottom padding for horse clearance */
+            padding: 5.5rem 3.5rem 6.5rem;
             border: 1px solid rgba(215, 205, 200, 0.35);
             position: relative;
             z-index: 2;
@@ -322,16 +319,14 @@
 
     <button class="music-control" id="musicBtn" onclick="handleMusicInteraction()">♫ Play Music</button>
 
+    <div id="yt-background-audio"></div>
+
     <div class="container">
         <div class="inscription">A Note</div>
         <h1 class="name">for <span class="weight">Zeina</span></h1>
         <div class="dedication">poetry was invented to describe you</div>
 
         <div class="line"></div>
-
-        <div class="player-wrapper">
-            <div id="yt-visible-player"></div>
-        </div>
 
         <p class="apology">
             I'm sorry I made you feel this way, I'm sorry that what I did can affect us, I'll do my best to do it right, make it better because I love you, and you know I do.<br><br>
@@ -359,7 +354,7 @@
         const popupMessage = document.getElementById('popupMessage');
         const musicBtn = document.getElementById('musicBtn');
 
-        // YouTube API Engine Initialization
+        // YouTube Background Audio Core
         let ytPlayer;
         
         const tag = document.createElement('script');
@@ -368,14 +363,14 @@
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
         function onYouTubeIframeAPIReady() {
-            ytPlayer = new YT.Player('yt-visible-player', {
-                height: '110',
-                width: '200',
-                videoId: 'U-7e_C2N2b0', // Official track ID for Aziz Maraka - Bint El Nas
+            ytPlayer = new YT.Player('yt-background-audio', {
+                height: '1',
+                width: '1',
+                videoId: 'HjjO5qm5gCM', // Target track node: Bint El Nas
                 playerVars: {
                     'playsinline': 1,
                     'loop': 1,
-                    'playlist': 'U-7e_C2N2b0',
+                    'playlist': 'HjjO5qm5gCM',
                     'controls': 0,
                     'showinfo': 0,
                     'modestbranding': 1,
