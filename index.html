@@ -178,6 +178,7 @@
             background: none;
             border: none;
             font-family: 'Inter', sans-serif;
+            line-height: inherit;
         }
         .action:hover {
             color: #B59090;
@@ -229,7 +230,7 @@
             right: 2.5rem;
         }
 
-        /* ===== FLOWER POPUP — IN-PAGE, NOT A NEW WINDOW ===== */
+        /* ===== FLOWER POPUP — IN-PAGE ===== */
         .flower-overlay {
             position: fixed;
             top: 0;
@@ -239,15 +240,16 @@
             background: rgba(252, 248, 247, 0.7);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            display: none;
+            display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
         }
         .flower-overlay.open {
-            display: flex;
             opacity: 1;
+            visibility: visible;
         }
 
         .flower-popup {
@@ -259,13 +261,12 @@
             position: relative;
             box-shadow: 0 40px 100px rgba(160, 120, 120, 0.15);
             border: 1px solid #F0E5E5;
-            animation: bloomIn 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: scale(0.9) translateY(15px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             text-align: center;
         }
-
-        @keyframes bloomIn {
-            0% { transform: scale(0.85) translateY(20px); opacity: 0; }
-            100% { transform: scale(1) translateY(0); opacity: 1; }
+        .flower-overlay.open .flower-popup {
+            transform: scale(1) translateY(0);
         }
 
         /* CSS Flower */
@@ -273,7 +274,7 @@
             position: relative;
             width: 80px;
             height: 80px;
-            margin: -3rem auto 1.5rem;
+            margin: -3rem auto 2.5rem; /* Added bottom margin to give the stem room */
         }
         .petal {
             position: absolute;
@@ -343,6 +344,7 @@
             font-family: 'Inter', sans-serif;
             letter-spacing: 0.5px;
             transition: all 0.3s;
+            line-height: inherit;
         }
         .flower-popup .close-btn:hover {
             color: #B59090;
@@ -358,7 +360,7 @@
             .actions { gap: 1.2rem; }
             .detail-tl, .detail-br { display: none; }
             .flower-popup { padding: 2.5rem 1.5rem 2rem; border-radius: 40px; }
-            .flower-illustration { width: 60px; height: 60px; margin-top: -2rem; }
+            .flower-illustration { width: 60px; height: 60px; margin-top: -2rem; margin-bottom: 2rem; }
             .petal { width: 22px; height: 22px; }
             .petal:nth-child(1) { transform: rotate(0deg) translateY(-18px); }
             .petal:nth-child(2) { transform: rotate(72deg) translateY(-18px); }
@@ -415,7 +417,6 @@
 
         <div class="line-thin"></div>
 
-        <!-- Three actions — open popups in-page -->
         <div class="actions">
             <button class="action primary" onclick="openFlower('let me show you')">let me show you</button>
             <button class="action" onclick="openFlower('i will be gentler')">i will be gentler</button>
@@ -428,7 +429,7 @@
 
     </div>
 
-    <!-- ===== FLOWER POPUP (in-page, not a new window) ===== -->
+    <!-- ===== FLOWER POPUP ===== -->
     <div class="flower-overlay" id="flowerOverlay">
         <div class="flower-popup">
 
@@ -455,7 +456,6 @@
         const popupTitle = document.getElementById('popupTitle');
         const popupMessage = document.getElementById('popupMessage');
 
-        // Poetic responses — focused on the apology, not absence
         const verses = [
             "She moved like a line of poetry — unexpected, essential, impossible to forget.",
             "I would learn every language just to apologize to her properly.",
@@ -506,15 +506,14 @@
                 default:
                     message = 'I am here. And I am sorry.';
                     title = 'for you';
+                    break;
             }
 
-            // Update the inline response
             responseEl.textContent = message;
             responseEl.style.animation = 'none';
             void responseEl.offsetWidth;
             responseEl.style.animation = 'fadeIn 0.6s ease';
 
-            // Open the flower popup with the message
             popupTitle.textContent = title;
             popupMessage.innerHTML = `“${message}”`;
             overlay.classList.add('open');
@@ -526,14 +525,12 @@
             document.body.style.overflow = '';
         }
 
-        // Close on backdrop click
         overlay.addEventListener('click', function(e) {
             if (e.target === this) {
                 closeFlower();
             }
         });
 
-        // Close with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && overlay.classList.contains('open')) {
                 closeFlower();
