@@ -21,10 +21,10 @@
             justify-content: center;
             padding: 2rem;
             position: relative;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
-        /* Ambient background shapes */
+        /* Background Shapes */
         .atmosphere {
             position: fixed;
             border-radius: 50%;
@@ -49,24 +49,63 @@
             opacity: 0.35;
         }
 
-        .container {
-            max-width: 600px;
+        /* Floating Flowers Canvas */
+        #flowerCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(255, 254, 253, 0.92);
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Music Button Styling */
+        .music-control {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            background: rgba(255, 254, 253, 0.8);
+            border: 1px solid #EDE7E4;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #96837F;
+            cursor: pointer;
+            z-index: 10;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .music-control:hover {
+            background: #A68080;
+            color: #FFFFFF;
+            border-color: #A68080;
+        }
+
+        /* Main Container Card */
+        .container {
+            max-width: 620px;
+            width: 100%;
+            background: rgba(255, 254, 253, 0.94);
             backdrop-filter: blur(20px);
             border-radius: 32px;
-            padding: 4.5rem 3.5rem;
-            border: 1px solid rgba(215, 205, 200, 0.25);
+            padding: 4rem 3rem 5rem;
+            border: 1px solid rgba(215, 205, 200, 0.3);
             position: relative;
-            z-index: 1;
-            box-shadow: 0 30px 80px rgba(140, 130, 125, 0.04);
+            z-index: 2;
+            box-shadow: 0 30px 80px rgba(140, 130, 125, 0.05);
+            overflow: hidden;
         }
 
         .line {
             width: 24px;
             height: 1px;
             background: #D5C8C5;
-            margin: 2rem auto;
+            margin: 1.8rem auto;
         }
 
         .inscription {
@@ -76,7 +115,7 @@
             text-transform: uppercase;
             color: #BCB0AC;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .name {
@@ -97,29 +136,29 @@
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
             font-weight: 300;
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: #B2A4A0;
             text-align: center;
-            margin-top: 0.5rem;
+            margin-top: 0.3rem;
         }
 
         .apology {
-            font-size: 0.95rem;
-            line-height: 2;
+            font-size: 0.92rem;
+            line-height: 1.9;
             color: #4A403E;
             text-align: center;
             font-weight: 300;
-            max-width: 460px;
+            max-width: 500px;
             margin: 0 auto;
         }
         
         .apology br {
             content: "";
-            margin: 0.6rem 0;
+            margin: 0.5rem 0;
             display: block;
         }
 
-        /* Clickable word styling */
+        /* Text Interaction Trigger */
         .trigger-word {
             color: #A68080;
             font-weight: 500;
@@ -134,20 +173,32 @@
             text-decoration-color: #8A6565;
         }
 
-        .response {
-            text-align: center;
-            margin-top: 2.5rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 1.1rem;
-            color: #96837F;
-            min-height: 2.5rem;
-            transition: all 0.3s;
+        /* Running Horse Asset Container */
+        .horse-track {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 45px;
+            pointer-events: none;
+            opacity: 0.15;
+            overflow: hidden;
+            border-top: 1px dashed rgba(150, 131, 127, 0.2);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
+        .running-horse {
+            position: absolute;
+            bottom: 5px;
+            width: 50px;
+            height: 35px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/7/70/Horse_gallop_animation_clipart.gif') center/contain no-repeat;
+            animation: gallop 14s linear infinite;
+            filter: sepia(0.3) hue-rotate(330deg) brightness(0.6);
+        }
+
+        @keyframes gallop {
+            0% { left: -60px; }
+            100% { left: 100%; }
         }
 
         /* ===== POPUP OVERLAY ===== */
@@ -176,7 +227,7 @@
             background: #FFFFFF;
             border-radius: 24px;
             padding: 3.5rem 2.5rem 2.5rem;
-            max-width: 420px;
+            max-width: 440px;
             width: 90%;
             position: relative;
             box-shadow: 0 30px 70px rgba(140, 130, 125, 0.08);
@@ -187,49 +238,6 @@
         }
         .flower-overlay.open .flower-popup {
             transform: scale(1) translateY(0);
-        }
-
-        /* Minimalist Flower */
-        .flower-illustration {
-            position: relative;
-            width: 60px;
-            height: 60px;
-            margin: -1.5rem auto 2rem;
-        }
-        .petal {
-            position: absolute;
-            width: 22px;
-            height: 22px;
-            background: #EADCD9;
-            border-radius: 50%;
-            transform-origin: center bottom;
-            opacity: 0.8;
-        }
-        .petal:nth-child(1) { transform: rotate(0deg) translateY(-15px); background: #E2D2CE; }
-        .petal:nth-child(2) { transform: rotate(72deg) translateY(-15px); }
-        .petal:nth-child(3) { transform: rotate(144deg) translateY(-15px); background: #E2D2CE; }
-        .petal:nth-child(4) { transform: rotate(216deg) translateY(-15px); }
-        .petal:nth-child(5) { transform: rotate(288deg) translateY(-15px); background: #E2D2CE; }
-        
-        .flower-center {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: #D0BEBA;
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .flower-stem {
-            position: absolute;
-            width: 1px;
-            height: 35px;
-            background: #CDC1BD;
-            bottom: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0.5;
         }
 
         .flower-popup .popup-title {
@@ -269,9 +277,9 @@
         }
 
         @media (max-width: 600px) {
-            .container { padding: 3rem 1.8rem; border-radius: 20px; }
-            .name { font-size: 2.8rem; }
-            .apology { font-size: 0.9rem; }
+            .container { padding: 3rem 1.5rem 4.5rem; border-radius: 20px; }
+            .name { font-size: 2.6rem; }
+            .apology { font-size: 0.88rem; line-height: 1.8; }
         }
     </style>
 </head>
@@ -280,34 +288,39 @@
     <div class="atmosphere"></div>
     <div class="atmosphere"></div>
 
+    <!-- Background Flying Flower Petals -->
+    <canvas id="flowerCanvas"></canvas>
+
+    <!-- Audio Player (Aziz Maraka - Bint El Nas) -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <!-- Replace the source URL above with your direct link to "بنت الناس" MP3 file -->
+    </audio>
+    <button class="music-control" id="musicBtn" onclick="toggleMusic()">♫ Play Music</button>
+
     <div class="container">
         <div class="inscription">A Note</div>
         <h1 class="name">for <span class="weight">Zeina</span></h1>
-        <div class="dedication">making things right</div>
+        <div class="dedication">poetry was invented to describe you</div>
 
         <div class="line"></div>
 
         <p class="apology">
             I hate that I made you feel small. It was completely thoughtless of me, and I know saying sorry doesn't automatically fix the way it felt.<br><br>
-            But if you click here to <span class="trigger-word" onclick="openFlower('read')">read my mind</span>, I want to show you what I actually see when I look at you. You have a quiet strength and a presence that completely belongs to you, and I completely lost sight of that.<br><br>
-            I am genuinely sorry for pushing your buttons and making you angry. You had every single right to be upset with me. Moving forward, I want to <span class="trigger-word" onclick="openFlower('change')">do things differently</span> and be much more careful with how I treat you.
+            When I saw you, I was afraid to let you in because I built a lot of walls and guards around me. But when it happened, <span class="trigger-word" onclick="openFlower('heaven')">it felt like heaven</span>, and I wish I could relive that feeling every day.<br><br>
+            Honestly, sometimes I do just by getting lost in your eyes because that's it, actually, your eyes! <span class="trigger-word" onclick="openFlower('eyes')">It made me let my guards down</span>. I stopped worrying about the damage you could cause or the damage I already carry.<br><br>
+            I knew from day one that loving you would be like going to war and that I’d never return the same. But the truth is? I don't ever want to go back. I Love You.
         </p>
 
-        <div class="response" id="response"></div>
+        <!-- Elegant Track for Running Silhouette Horse -->
+        <div class="horse-track">
+            <div class="running-horse"></div>
+        </div>
     </div>
 
-    <!-- ===== POPUP ===== -->
+    <!-- ===== INTUITIVE POPUP ===== -->
     <div class="flower-overlay" id="flowerOverlay">
         <div class="flower-popup">
-            <div class="flower-illustration">
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="flower-center"></div>
-                <div class="flower-stem"></div>
-            </div>
             <div class="popup-title" id="popupTitle"></div>
             <div class="popup-message" id="popupMessage"></div>
             <button class="close-btn" onclick="closeFlower()">Close</button>
@@ -315,48 +328,35 @@
     </div>
 
     <script>
-        const responseEl = document.getElementById('response');
         const overlay = document.getElementById('flowerOverlay');
         const popupTitle = document.getElementById('popupTitle');
         const popupMessage = document.getElementById('popupMessage');
+        const audio = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
 
-        // Simple, clean, natural English phrases
-        const readPhrases = [
-            "I realize now that your quiet moments mean you are observing, not ignoring. I need to respect that.",
-            "You don't have to be loud to be heard. Your presence matters a lot to me.",
-            "I am learning to pay attention to the details instead of just rushing through things.",
-            "You see people clearly for who they are. I should have trusted your perspective."
-        ];
-
-        const changePhrases = [
-            "An apology doesn't mean anything without action. I want to show you I mean it.",
-            "I promise to listen to understand you, not just to argue back.",
-            "I want to make sure you always feel safe and respected around me.",
-            "I am working on being more patient and putting my pride aside."
-        ];
+        // Handle Audio Control safely
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play();
+                musicBtn.textContent = "✓ Music On";
+            } else {
+                audio.pause();
+                musicBtn.textContent = "♫ Play Music";
+            }
+        }
 
         function openFlower(type) {
             let message = '';
             let title = '';
 
-            switch(type) {
-                case 'read':
-                    message = readPhrases[Math.floor(Math.random() * readPhrases.length)];
-                    title = "What I am learning";
-                    break;
-                case 'change':
-                    message = changePhrases[Math.floor(Math.random() * changePhrases.length)];
-                    title = "My promise to you";
-                    break;
+            if (type === 'heaven') {
+                message = "The kind of peace that makes everything before it disappear entirely.";
+                title = "A Fragment";
+            } else if (type === 'eyes') {
+                message = "Where every single line of defense fails, and I find myself perfectly okay with it.";
+                title = "The Truth";
             }
 
-            // Reveal the text quietly at the bottom of the card too
-            responseEl.textContent = `“${message}”`;
-            responseEl.style.animation = 'none';
-            void responseEl.offsetWidth;
-            responseEl.style.animation = 'fadeIn 0.6s ease forwards';
-
-            // Open the card pop-up
             popupTitle.textContent = title;
             popupMessage.innerHTML = `“${message}”`;
             overlay.classList.add('open');
@@ -372,9 +372,66 @@
             if (e.target === this) closeFlower();
         });
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && overlay.classList.contains('open')) closeFlower();
+        // HTML5 Canvas Flying Flowers Simulation
+        const canvas = document.getElementById('flowerCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
         });
+
+        const petalCount = 35;
+        const petals = [];
+
+        class Petal {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height - height;
+                this.r = Math.random() * 6 + 4;
+                this.d = Math.random() * petalCount;
+                this.speedX = Math.random() * 1.5 - 0.5;
+                this.speedY = Math.random() * 1 + 0.8;
+                this.opacity = Math.random() * 0.4 + 0.2;
+                this.flip = Math.random();
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2, false);
+                ctx.fillStyle = `rgba(234, 220, 217, ${this.opacity})`;
+                ctx.fill();
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX + Math.sin(this.d / 10) * 0.3;
+                this.d += 0.05;
+
+                if (this.y > height) {
+                    this.y = -20;
+                    this.x = Math.random() * width;
+                }
+            }
+        }
+
+        for (let i = 0; i < petalCount; i++) {
+            petals.push(new Petal());
+        }
+
+        function animatePetals() {
+            ctx.clearRect(0, 0, width, height);
+            petals.forEach(petal => {
+                petal.update();
+                petal.draw();
+            });
+            requestAnimationFrame(animatePetals);
+        }
+
+        animatePetals();
     </script>
 </body>
 </html>
