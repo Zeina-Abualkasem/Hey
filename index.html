@@ -19,9 +19,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 4rem 2rem;
             position: relative;
-            overflow: hidden;
+            /* FIX: Enabled scrolling so she can read everything smoothly */
+            overflow-y: auto;
+            overflow-x: hidden;
         }
 
         /* Ambient Living Background Colors */
@@ -89,18 +91,16 @@
             border-color: #A68080;
             transform: translateY(-2px);
         }
-        .music-control:active {
-            transform: translateY(0);
-        }
 
-        /* Completely Hidden YouTube Vault Container */
-        #yt-hidden-player {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            opacity: 0;
-            pointer-events: none;
-            left: -9999px;
+        /* FIX: Tiny mini-player inside the card so YouTube doesn't block playback features */
+        .player-wrapper {
+            margin: 0 auto 1.5rem;
+            width: 200px;
+            height: 110px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(215, 205, 200, 0.4);
+            box-shadow: 0 10px 30px rgba(140, 130, 125, 0.05);
         }
 
         /* Master Letter Sculpture */
@@ -110,12 +110,11 @@
             background: rgba(255, 254, 253, 0.94);
             backdrop-filter: blur(24px);
             border-radius: 32px;
-            padding: 5.5rem 3.5rem;
+            padding: 5.5rem 3.5rem 6.5rem; /* Increased bottom padding for horse clearance */
             border: 1px solid rgba(215, 205, 200, 0.35);
             position: relative;
             z-index: 2;
             box-shadow: 0 40px 100px rgba(140, 130, 125, 0.06);
-            overflow: hidden;
         }
 
         .line {
@@ -147,8 +146,6 @@
         .name .weight {
             font-weight: 500;
             color: #A68080;
-            position: relative;
-            display: inline-block;
         }
 
         .dedication {
@@ -168,7 +165,7 @@
             text-align: center;
             font-weight: 300;
             max-width: 500px;
-            margin: 0 auto;
+            margin: 0 auto 2rem;
         }
         
         .apology br {
@@ -310,7 +307,7 @@
         }
 
         @media (max-width: 600px) {
-            .container { padding: 4rem 1.8rem 4.5rem; border-radius: 24px; }
+            .container { padding: 4rem 1.8rem 5rem; border-radius: 24px; }
             .name { font-size: 2.8rem; }
             .apology { font-size: 0.9rem; line-height: 1.9; }
         }
@@ -321,11 +318,8 @@
     <div class="atmosphere"></div>
     <div class="atmosphere"></div>
 
-    <!-- Organic Fluid Petal Field -->
     <canvas id="flowerCanvas"></canvas>
 
-    <!-- Invisible Secure Audio Streaming Container -->
-    <div id="yt-hidden-player"></div>
     <button class="music-control" id="musicBtn" onclick="handleMusicInteraction()">♫ Play Music</button>
 
     <div class="container">
@@ -335,6 +329,10 @@
 
         <div class="line"></div>
 
+        <div class="player-wrapper">
+            <div id="yt-visible-player"></div>
+        </div>
+
         <p class="apology">
             I'm sorry I made you feel this way, I'm sorry that what I did can affect us, I'll do my best to do it right, make it better because I love you, and you know I do.<br><br>
             When I saw you, I was afraid to let you in because I built a lot of walls and guards around me. But when it happened, <span class="trigger-word" onclick="openFlower('heaven')">it felt like heaven</span>, and I wish I could relive that feeling every day.<br><br>
@@ -342,13 +340,11 @@
             I knew from day one that loving you would be like going to war and that I’d never return the same. But the truth is? I don't ever want to go back. I Love You.
         </p>
 
-        <!-- Kinetic Moving Sculpture Track -->
         <div class="horse-track">
             <div class="running-horse"></div>
         </div>
     </div>
 
-    <!-- Immersive Modal Document Architecture -->
     <div class="flower-overlay" id="flowerOverlay">
         <div class="flower-popup">
             <div class="popup-title" id="popupTitle"></div>
@@ -363,27 +359,26 @@
         const popupMessage = document.getElementById('popupMessage');
         const musicBtn = document.getElementById('musicBtn');
 
-        // YouTube Iframe Embedded API Engine Initialization
+        // YouTube API Engine Initialization
         let ytPlayer;
         
-        // Inject YouTube API Script dynamically to guarantee no asset loading blockers
         const tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         const firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-        // API creates an <iframe> invisibly running Aziz Maraka's ID securely
         function onYouTubeIframeAPIReady() {
-            ytPlayer = new YT.Player('yt-hidden-player', {
-                height: '100',
-                width: '100',
-                videoId: 'U-7e_C2N2b0', // Exact official track ID for Aziz Maraka - Bint El Nas
+            ytPlayer = new YT.Player('yt-visible-player', {
+                height: '110',
+                width: '200',
+                videoId: 'U-7e_C2N2b0', // Official track ID for Aziz Maraka - Bint El Nas
                 playerVars: {
                     'playsinline': 1,
                     'loop': 1,
                     'playlist': 'U-7e_C2N2b0',
                     'controls': 0,
                     'showinfo': 0,
+                    'modestbranding': 1,
                     'rel': 0
                 },
                 events: {
@@ -426,12 +421,10 @@
             popupTitle.textContent = title;
             popupMessage.innerHTML = `“${message}”`;
             overlay.classList.add('open');
-            document.body.style.overflow = 'hidden';
         }
 
         function closeFlower() {
             overlay.classList.remove('open');
-            document.body.style.overflow = '';
         }
 
         overlay.addEventListener('click', function(e) {
@@ -456,7 +449,7 @@
         class Petal {
             constructor() {
                 this.reset();
-                this.y = Math.random() * height; // Distribute across space instantly on launch
+                this.y = Math.random() * height; 
             }
 
             reset() {
