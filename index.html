@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>for zeina — a small universe</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>for Zeina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,425 +15,413 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             min-height: 100vh;
-            background: #FDF8F7;
+            background: #FCF8F7;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1.5rem;
+            padding: 2rem;
             position: relative;
+            overflow-x: hidden;
         }
 
-        /* Abstract pink gradients — subtle, not cliché */
-        .gradient-orb {
+        /* Abstract pink — soft, painterly */
+        .atmosphere {
             position: fixed;
             border-radius: 50%;
-            filter: blur(80px);
+            filter: blur(120px);
             pointer-events: none;
             z-index: 0;
         }
-        .gradient-orb:nth-child(1) {
-            width: 500px;
-            height: 500px;
+        .atmosphere:nth-child(1) {
+            width: 600px;
+            height: 600px;
             background: #F5D9D9;
-            top: -200px;
-            right: -100px;
-            opacity: 0.4;
-        }
-        .gradient-orb:nth-child(2) {
-            width: 400px;
-            height: 400px;
-            background: #EED5D5;
-            bottom: -150px;
-            left: -100px;
+            top: -300px;
+            right: -200px;
             opacity: 0.3;
         }
-        .gradient-orb:nth-child(3) {
-            width: 300px;
-            height: 300px;
+        .atmosphere:nth-child(2) {
+            width: 500px;
+            height: 500px;
+            background: #EED5D5;
+            bottom: -250px;
+            left: -150px;
+            opacity: 0.25;
+        }
+        .atmosphere:nth-child(3) {
+            width: 400px;
+            height: 400px;
             background: #F0DCDC;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0.15;
+            top: 40%;
+            left: 30%;
+            opacity: 0.12;
         }
 
         .container {
-            max-width: 720px;
+            max-width: 680px;
             width: 100%;
-            background: rgba(255, 252, 251, 0.85);
-            backdrop-filter: blur(20px);
-            border-radius: 48px;
-            padding: 3.5rem 3rem;
-            border: 1px solid rgba(235, 215, 215, 0.3);
+            background: rgba(255, 252, 251, 0.88);
+            backdrop-filter: blur(16px);
+            border-radius: 56px;
+            padding: 4rem 3.5rem;
+            border: 1px solid rgba(220, 200, 200, 0.2);
             position: relative;
             z-index: 1;
-            box-shadow: 0 30px 80px rgba(160, 120, 120, 0.06);
+            box-shadow: 0 40px 100px rgba(160, 120, 120, 0.05);
         }
 
-        /* Minimalist divider — not a heart, not a flower */
+        /* Minimalist geometry */
         .line {
-            width: 40px;
+            width: 32px;
             height: 1px;
-            background: #DCC5C5;
-            margin: 1.8rem auto;
+            background: #D4C0C0;
+            margin: 2rem auto;
         }
 
-        /* Typography — quiet, restrained */
-        .small-label {
-            font-size: 0.65rem;
-            font-weight: 400;
-            letter-spacing: 3px;
+        .line-thin {
+            width: 60px;
+            height: 1px;
+            background: #E8D8D8;
+            margin: 1.5rem auto;
+        }
+
+        /* Typography — quiet, deliberate */
+        .inscription {
+            font-size: 0.6rem;
+            font-weight: 300;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            color: #C9AFAF;
+            color: #C9B0B0;
             text-align: center;
             margin-bottom: 1.2rem;
         }
 
-        .name-title {
+        .name {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 300;
-            font-size: 3.8rem;
+            font-size: 4.2rem;
             color: #B59090;
             text-align: center;
-            line-height: 1.1;
-            letter-spacing: -1px;
+            line-height: 1.05;
+            letter-spacing: -1.5px;
         }
-
-        .name-title .accent {
+        .name .weight {
             font-weight: 600;
             color: #C08282;
         }
 
-        .sub-text {
+        .dedication {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
             font-weight: 300;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #C9AFAF;
             text-align: center;
-            margin-top: 0.2rem;
+            margin-top: 0.3rem;
+            letter-spacing: 0.3px;
         }
 
-        /* The apology — honest, not cheesy */
-        .apology-text {
+        /* The apology — restrained, honest */
+        .apology {
             font-size: 0.95rem;
-            line-height: 1.9;
+            line-height: 2;
             color: #5A4A4A;
             text-align: center;
-            max-width: 480px;
-            margin: 0 auto;
             font-weight: 300;
+            max-width: 460px;
+            margin: 0 auto;
         }
-        .apology-text strong {
+        .apology .em {
             color: #B59090;
+            font-weight: 400;
+            font-style: italic;
+        }
+        .apology .strong {
+            color: #C08282;
             font-weight: 500;
         }
 
-        /* Her loves — presented as abstract icons, not a grid of emojis */
-        .loves-scene {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2.5rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-            position: relative;
-        }
-        .love-element {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.4rem;
-        }
-        .love-symbol {
-            font-size: 1.6rem;
-            opacity: 0.6;
-            transition: all 0.3s;
-            filter: grayscale(0.3);
-        }
-        .love-symbol:hover {
-            opacity: 1;
-            filter: grayscale(0);
-            transform: translateY(-2px);
-        }
-        .love-name {
-            font-size: 0.6rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #D4BFBF;
-            font-weight: 300;
-        }
-
-        /* The promise — written like a fragment, not a cliché */
-        .promise-fragment {
+        /* Poetry fragment — original, not cliché */
+        .poetry {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
             font-weight: 300;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: #B59090;
             text-align: center;
-            line-height: 1.7;
-            padding: 1.2rem 0;
+            line-height: 1.8;
+            padding: 1.8rem 0;
             border-top: 1px solid #F0E5E5;
             border-bottom: 1px solid #F0E5E5;
-            margin: 1.5rem 0;
+            margin: 1.8rem 0;
         }
-        .promise-fragment .highlight {
+        .poetry .accent-word {
             font-weight: 600;
             color: #C08282;
             font-style: normal;
         }
 
-        /* Buttons — minimal, text-based */
-        .actions {
+        /* Her loves — abstracted, no emojis */
+        .loves {
             display: flex;
-            gap: 1.5rem;
             justify-content: center;
-            margin-top: 2rem;
+            gap: 2.8rem;
+            margin: 1.8rem 0 0.5rem;
             flex-wrap: wrap;
         }
-        .action-link {
-            font-size: 0.8rem;
-            font-weight: 400;
+        .love-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .love-symbol {
+            font-size: 1.3rem;
+            color: #D4BFBF;
+            font-weight: 200;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        .love-symbol:hover {
+            color: #B59090;
+        }
+        .love-label {
+            font-size: 0.55rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #D4C0C0;
+            font-weight: 300;
+        }
+
+        /* Actions — poetic, not pushy */
+        .actions {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2.2rem;
+            flex-wrap: wrap;
+        }
+        .action {
+            font-size: 0.75rem;
+            font-weight: 300;
             color: #C9AFAF;
             text-decoration: none;
             border-bottom: 1px solid transparent;
-            transition: all 0.25s;
+            transition: all 0.3s;
             padding: 0.2rem 0;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
             cursor: pointer;
             background: none;
             border: none;
             font-family: 'Inter', sans-serif;
         }
-        .action-link:hover {
+        .action:hover {
             color: #B59090;
-            border-bottom-color: #DCC5C5;
+            border-bottom-color: #D4C0C0;
         }
-        .action-link.primary {
+        .action.primary {
             color: #B59090;
-            font-weight: 500;
+            font-weight: 400;
         }
-        .action-link.primary:hover {
+        .action.primary:hover {
             color: #C08282;
             border-bottom-color: #C08282;
         }
 
-        /* Tiny details — like a found object */
-        .detail-corner {
-            position: absolute;
-            bottom: 1.8rem;
-            right: 2rem;
-            font-size: 0.7rem;
-            color: #E0CFCF;
-            letter-spacing: 0.5px;
-            font-weight: 300;
-            opacity: 0.6;
+        /* Response container */
+        .response {
+            text-align: center;
+            margin-top: 1.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: #B59090;
+            padding: 0.8rem 1rem;
+            border-top: 1px solid #F0E5E5;
+            min-height: 3rem;
+            transition: all 0.3s;
+            animation: fadeIn 0.6s ease;
         }
-        .detail-corner-left {
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tiny details */
+        .detail {
             position: absolute;
-            top: 1.8rem;
-            left: 2rem;
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             color: #E0CFCF;
-            letter-spacing: 0.5px;
-            font-weight: 300;
+            letter-spacing: 1px;
+            font-weight: 200;
             opacity: 0.4;
+        }
+        .detail-tl {
+            top: 2rem;
+            left: 2.5rem;
+        }
+        .detail-br {
+            bottom: 2rem;
+            right: 2.5rem;
         }
 
         /* Responsive */
         @media (max-width: 600px) {
-            .container { padding: 2rem 1.5rem; border-radius: 32px; }
-            .name-title { font-size: 2.8rem; }
-            .loves-scene { gap: 1.5rem; }
-            .apology-text { font-size: 0.9rem; }
-            .detail-corner, .detail-corner-left { display: none; }
+            .container { padding: 2.5rem 1.8rem; border-radius: 40px; }
+            .name { font-size: 3rem; }
+            .apology { font-size: 0.9rem; }
+            .poetry { font-size: 1rem; padding: 1.2rem 0; }
+            .loves { gap: 1.8rem; }
+            .actions { gap: 1.2rem; }
+            .detail-tl, .detail-br { display: none; }
         }
 
         @media (max-width: 400px) {
-            .loves-scene { gap: 1rem; }
-            .love-symbol { font-size: 1.3rem; }
+            .container { padding: 2rem 1.2rem; }
+            .name { font-size: 2.4rem; }
+            .loves { gap: 1.2rem; }
+            .love-symbol { font-size: 1rem; }
             .actions { flex-direction: column; align-items: center; gap: 0.8rem; }
         }
 
-        /* A quiet animation */
-        @keyframes subtleFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-3px); }
+        /* Cursor */
+        ::selection {
+            background: #F0E0E0;
+            color: #B59090;
         }
-        .float-soft {
-            animation: subtleFloat 4s ease-in-out infinite;
-        }
-        .float-soft:nth-child(2) { animation-delay: 0.5s; }
-        .float-soft:nth-child(3) { animation-delay: 1s; }
-        .float-soft:nth-child(4) { animation-delay: 1.5s; }
-        .float-soft:nth-child(5) { animation-delay: 2s; }
     </style>
 </head>
 <body>
 
-    <!-- Abstract background -->
-    <div class="gradient-orb"></div>
-    <div class="gradient-orb"></div>
-    <div class="gradient-orb"></div>
+    <!-- Atmosphere -->
+    <div class="atmosphere"></div>
+    <div class="atmosphere"></div>
+    <div class="atmosphere"></div>
 
     <div class="container">
 
-        <!-- Minimal details -->
-        <div class="detail-corner-left">✦</div>
-        <div class="detail-corner">✦</div>
+        <!-- Details -->
+        <div class="detail detail-tl">✦</div>
+        <div class="detail detail-br">✦</div>
 
         <!-- Header -->
-        <div class="small-label">a note for</div>
-        <h1 class="name-title">Zeina <span class="accent">·</span></h1>
-        <div class="sub-text">pink light, open pages, and the sound of hooves</div>
+        <div class="inscription">a letter</div>
+        <h1 class="name">for <span class="weight">Zeina</span></h1>
+        <div class="dedication">— in the quiet light of apology —</div>
 
         <div class="line"></div>
 
-        <!-- Apology — honest, not cliché -->
-        <p class="apology-text">
-            I know I made you feel less than you are — <strong>and that's not okay</strong>.<br><br>
-            You deserve someone who sees you like a <strong>pink sunrise</strong> —<br>
-            rare, quiet, and worth waking up for.<br><br>
-            Someone who reads your <strong>silences</strong> the way you read books —<br>
-            carefully, with attention, without rushing to the last page.
+        <!-- Apology -->
+        <p class="apology">
+            I made you feel <span class="em">less</span> than you are,<br>
+            and that is not something I can undo with words alone.<br><br>
+            But I want you to know: <span class="strong">I see you</span>.<br>
+            Not as an idea, not as a reflection of me —<br>
+            but as the person who makes <span class="em">pink</span> feel like a serious color.<br><br>
+            I am sorry for the distance I created.<br>
+            I am sorry for not being <span class="strong">present</span>.
         </p>
 
-        <!-- Her loves — presented quietly, not as a loud grid -->
-        <div class="loves-scene">
-            <div class="love-element float-soft">
-                <span class="love-symbol">🌸</span>
-                <span class="love-name">pink</span>
+        <!-- Poetry — original, not cliché -->
+        <div class="poetry">
+            “Poetry was invented to describe you —<br>
+            but even the best verses <span class="accent-word">stumble</span><br>
+            at the weight of your <span class="accent-word">stillness</span>.”
+        </div>
+
+        <!-- Her loves — abstracted, no emojis -->
+        <div class="loves">
+            <div class="love-item">
+                <span class="love-symbol">◈</span>
+                <span class="love-label">pink</span>
             </div>
-            <div class="love-element float-soft">
-                <span class="love-symbol">🌷</span>
-                <span class="love-name">lilies</span>
+            <div class="love-item">
+                <span class="love-symbol">◈</span>
+                <span class="love-label">lilies</span>
             </div>
-            <div class="love-element float-soft">
-                <span class="love-symbol">🐴</span>
-                <span class="love-name">ponies</span>
+            <div class="love-item">
+                <span class="love-symbol">◈</span>
+                <span class="love-label">ponies</span>
             </div>
-            <div class="love-element float-soft">
-                <span class="love-symbol">🐎</span>
-                <span class="love-name">horses</span>
+            <div class="love-item">
+                <span class="love-symbol">◈</span>
+                <span class="love-label">horses</span>
             </div>
-            <div class="love-element float-soft">
-                <span class="love-symbol">📖</span>
-                <span class="love-name">reading</span>
+            <div class="love-item">
+                <span class="love-symbol">◈</span>
+                <span class="love-label">reading</span>
             </div>
         </div>
 
-        <!-- Promise — written like a fragment, not a cliché -->
-        <div class="promise-fragment">
-            “I’ll be <span class="highlight">gentler</span> with your heart<br>
-            than I was with my own words.”
-        </div>
+        <div class="line-thin"></div>
 
-        <!-- Actions — subtle, not demanding -->
+        <!-- Actions -->
         <div class="actions">
-            <button class="action-link primary" onclick="respond()">i'd like to make it right</button>
-            <button class="action-link" onclick="lilies()">send you lilies</button>
-            <button class="action-link" onclick="quote()">a line from a book</button>
+            <button class="action primary" onclick="showResponse('let me show you')">let me show you</button>
+            <button class="action" onclick="showResponse('i will be gentler')">i will be gentler</button>
+            <button class="action" onclick="showResponse('another verse')">another verse</button>
+        </div>
+
+        <!-- Response container -->
+        <div class="response" id="response">
+            <!-- responses appear here -->
         </div>
 
     </div>
 
     <script>
-        // Quiet, thoughtful responses — not popups with emojis
-        function respond() {
-            const messages = [
-                "You don't have to say anything. Just let me show you.",
-                "I'll wait. However long it takes.",
-                "Your feelings matter more than my pride.",
-                "I'm here. Not to explain — just to listen.",
-                "I see you, Zeina. I'm sorry I forgot to say it."
-            ];
-            const msg = messages[Math.floor(Math.random() * messages.length)];
-            // Create a subtle inline response instead of alert
-            const existing = document.querySelector('.response-inline');
-            if (existing) existing.remove();
+        const responseEl = document.getElementById('response');
 
-            const div = document.createElement('div');
-            div.className = 'response-inline';
-            div.style.cssText = `
-                text-align: center;
-                margin-top: 1.5rem;
-                font-size: 0.9rem;
-                color: #B59090;
-                font-family: 'Cormorant Garamond', serif;
-                font-style: italic;
-                padding: 0.5rem 1rem;
-                border-top: 1px solid #F0E5E5;
-                animation: subtleFloat 3s ease-in-out infinite;
-            `;
-            div.textContent = '“' + msg + '”';
-            document.querySelector('.container').appendChild(div);
-        }
+        const verses = [
+            "“She moved like a line of poetry —\nunexpected, essential, and impossible to forget.”",
+            "“I would learn every language\njust to apologize to her properly.”",
+            "“She read books the way I should have read her —\ncarefully, without assumptions.”",
+            "“Pink is not soft. It is the color of insistence.\nShe taught me that.”",
+            "“I will not make the same mistake twice.\nShe is worth every version of better.”"
+        ];
 
-        function lilies() {
-            const existing = document.querySelector('.response-inline');
-            if (existing) existing.remove();
+        const promises = [
+            "I will be gentler with your heart than I was with my pride.",
+            "I will listen — not to respond, but to understand.",
+            "I will show up, not perfectly, but present.",
+            "I will stop treating your silence as absence.",
+            "I will learn to read you the way you read books — with patience."
+        ];
 
-            const div = document.createElement('div');
-            div.className = 'response-inline';
-            div.style.cssText = `
-                text-align: center;
-                margin-top: 1.5rem;
-                font-size: 0.85rem;
-                color: #C9AFAF;
-                font-family: 'Inter', sans-serif;
-                font-weight: 300;
-                padding: 0.5rem 1rem;
-                border-top: 1px solid #F0E5E5;
-                letter-spacing: 0.3px;
-            `;
-            const lilyLines = [
-                "I'd leave a trail of lilies from your door to wherever you want to go.",
-                "Lilies don't ask for forgiveness. They just bloom. I'll try to be more like that.",
-                "A lily a day until you smile. I'm not kidding.",
-                "You're the only pink I need in my life."
-            ];
-            div.textContent = '✦ ' + lilyLines[Math.floor(Math.random() * lilyLines.length)] + ' ✦';
-            document.querySelector('.container').appendChild(div);
-        }
+        const offers = [
+            "I will bring you lilies until you forget my mistakes.",
+            "I will wait. However long it takes.",
+            "I will be the person you deserve — not tomorrow, but starting now.",
+            "I will not make promises I can't keep. But this one I will.",
+            "I will remember: you are not a chapter — you are the whole book."
+        ];
 
-        function quote() {
-            const existing = document.querySelector('.response-inline');
-            if (existing) existing.remove();
-
-            const quotes = [
-                "“She was a wild horse in a world of fences.”",
-                "“She read books like other people breathe — instinctively, and with great care.”",
-                "“Pink is not a color. It's an attitude. And she wore it like armor.”",
-                "“Some people are lilies in a field of roses. She was one of them.”",
-                "“She loved horses because they never lied. She wished people were the same.”"
-            ];
-            const div = document.createElement('div');
-            div.className = 'response-inline';
-            div.style.cssText = `
-                text-align: center;
-                margin-top: 1.5rem;
-                font-size: 0.95rem;
-                color: #B59090;
-                font-family: 'Cormorant Garamond', serif;
-                font-style: italic;
-                padding: 0.5rem 1rem;
-                border-top: 1px solid #F0E5E5;
-                animation: subtleFloat 3s ease-in-out infinite;
-            `;
-            div.textContent = quotes[Math.floor(Math.random() * quotes.length)];
-            document.querySelector('.container').appendChild(div);
-        }
-
-        // Add the subtle float animation if not already defined
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes subtleFloat {
-                0%, 100% { transform: translateY(0); }
-                50% { transform: translateY(-3px); }
+        function showResponse(type) {
+            let message = '';
+            switch(type) {
+                case 'let me show you':
+                    message = offers[Math.floor(Math.random() * offers.length)];
+                    break;
+                case 'i will be gentler':
+                    message = promises[Math.floor(Math.random() * promises.length)];
+                    break;
+                case 'another verse':
+                    message = verses[Math.floor(Math.random() * verses.length)];
+                    break;
+                default:
+                    message = '“I am here. And I am sorry.”';
             }
-        `;
-        document.head.appendChild(style);
+
+            responseEl.textContent = message;
+            responseEl.style.animation = 'none';
+            // Trigger reflow
+            void responseEl.offsetWidth;
+            responseEl.style.animation = 'fadeIn 0.6s ease';
+        }
+
+        // Show initial message
+        responseEl.textContent = '“I am learning to be better. For you.”';
     </script>
 
 </body>
